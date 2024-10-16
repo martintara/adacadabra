@@ -1,29 +1,12 @@
 with MicroBit.Console; use MicroBit.Console; -- for serial port communication
---  with DFR0548;  -- using the types defined here
---  with HAL;
-
 with Traffic_Light;
-
---  with MicroBit.Ultrasonic;
---  with MicroBit.Types; use MicroBit.Types;
-
 with MicroBit.Buttons; use MicroBit.Buttons;
-
 with Ada.Real_Time; use Ada.Real_Time;
-
 use MicroBit; --for pin names
-
-
-
 procedure Main is
-
-   --   package sensor3 is new Ultrasonic(MB_P13, MB_P12);
-   --   Distance : Distance_cm := 0;
-   --  My_UInt12_Value : HAL.UInt12;
    Current_State : Traffic_Light.State_Type := Traffic_Light.Red;
    Debounce_Delay : constant Duration := 0.1;
    Counter : Integer := 1;
-
 begin
    -- Main loop to handle state changes and continuous counting
    loop
