@@ -1,6 +1,6 @@
 with Ada.Text_IO; use Ada.Text_IO;
 
-package body Traffic_Light is
+package body States is
 
    -- Function to return the current state as a string
    function Get_State (Current_State : State_Type) return String is
@@ -25,4 +25,4 @@ package body Traffic_Light is
       end case;
    end Next_State;
 
-end Traffic_Light;
+end States;

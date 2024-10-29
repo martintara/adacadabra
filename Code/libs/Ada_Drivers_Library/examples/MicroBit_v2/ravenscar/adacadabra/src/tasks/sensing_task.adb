@@ -3,6 +3,7 @@
 
 with Ada.Real_Time; use Ada.Real_Time;
 with Shared_Data;
+with MicroBit.Console; use MicroBit.Console;
 
 package body Sensing_Task is
 
@@ -15,7 +16,7 @@ package body Sensing_Task is
 
          -- Store the sensor reading in the protected object
          Shared_Data.Shared_State.Set_Sensor_Reading(Sensor_Input);
-
+         Put_Line("Test");
          -- Simulate sensing rate (e.g., reading sensors every 200ms)
          delay until Clock + Milliseconds(200);
       end loop;
