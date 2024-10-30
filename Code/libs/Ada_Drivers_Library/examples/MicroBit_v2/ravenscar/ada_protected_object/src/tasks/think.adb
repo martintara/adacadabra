@@ -6,20 +6,20 @@ with protectedobjects; use protectedobjects;
 package body think is
    task body thinktask is
       aclock : Time;
-      FLReading : Distance_cm;
-      FRReading : Distance_cm;
-      BReading : Distance_cm;
+      FLReading : Integer;
+      FRReading : Integer;
+      BReading : Integer;
    begin
       Put_Line("Started thinking task.");
       loop
          aclock := Clock;
-         FLReading := Shared_Data.GetFLSensor;
-         FRReading := Shared_Data.GetFRSensor;
-         BReading := Shared_Data.GetBSensor;
-         Put_Line("FLS: " & Distance_cm'Image(FLReading));
-         Put_Line("FRS: " & Distance_cm'Image(FRReading));
-         Put_Line("BS: " & Distance_cm'Image(BReading));
-         delay until aclock + Seconds(3);
+         FLReading := Integer(Shared_Data.GetFLAvg);
+         FRReading := Integer(Shared_Data.GetFRAvg);
+         BReading := Integer(Shared_Data.GetBAvg);
+         Put_Line("FLS: " & Integer'Image(FLReading));
+         Put_Line("FRS: " & Integer'Image(FRReading));
+         Put_Line("BS: " & Integer'Image(BReading));
+         delay until aclock + Milliseconds(600);
       end loop;
    end thinktask;
 end think;
