@@ -4,13 +4,12 @@ with Microbit.Types; use Microbit.Types;
 
 package body act is
    task body acttask is
-      aclock : Time;
+      timer : Time;
    begin
       Put_Line("Started acting task.");
       loop
-         aclock := Clock;
-
-         delay until aclock + Seconds(2);
+         timer := Clock;
+         delay until timer + Seconds(2);
       end loop;
    end acttask;
 end act;

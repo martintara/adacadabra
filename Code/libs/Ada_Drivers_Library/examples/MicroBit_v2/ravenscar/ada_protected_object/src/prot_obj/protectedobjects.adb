@@ -2,7 +2,7 @@ with MicroBit.Types; use MicroBit.Types;
 with MicroBit.MotorDriver; use MicroBit.MotorDriver;
 
 package body protectedobjects is
-   protected body ProtObjs is
+   protected body Brain is
       function GetFRAvg return Float is
       begin
          return FRAvg;
@@ -42,5 +42,5 @@ package body protectedobjects is
       begin
          Dir := D;
       end SetDir;
-   end ProtObjs;
+   end Brain;
 end protectedobjects;

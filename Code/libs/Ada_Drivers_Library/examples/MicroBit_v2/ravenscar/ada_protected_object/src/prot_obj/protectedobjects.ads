@@ -2,7 +2,7 @@ with MicroBit.Types; use MicroBit.Types;
 with MicroBit.MotorDriver; use MicroBit.MotorDriver;
 
 package protectedobjects is
-   protected type ProtObjs is
+   protected Brain is
       function GetFRAvg return Float;
       function GetFLAvg return Float;
       function GetBAvg return Float;
@@ -17,8 +17,5 @@ package protectedobjects is
       FLAvg : Float := 0.0;
       BAvg : Float := 0.0;
       Dir : Directions := Stop;
-
-   end ProtObjs;
-
-   Shared_Data : ProtObjs;
+   end Brain;
 end protectedobjects;
