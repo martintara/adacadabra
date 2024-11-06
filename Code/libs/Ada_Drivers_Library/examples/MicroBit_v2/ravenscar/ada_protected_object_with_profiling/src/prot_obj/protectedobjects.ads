@@ -3,7 +3,7 @@ with Ada.Real_Time; use Ada.Real_Time;
 with MicroBit.MotorDriver; use MicroBit.MotorDriver;
 
 package protectedobjects is
-   protected type ProtObjs is
+   protected Brain is
       function GetFRAvg return Float;
       function GetFLAvg return Float;
       function GetBAvg return Float;
@@ -28,7 +28,5 @@ package protectedobjects is
       ThinkTime : Time_Span := Milliseconds(0);
       ActTime : Time_Span := Milliseconds(0);
 
-   end ProtObjs;
-
-   Shared_Data : ProtObjs;
+   end Brain;
 end protectedobjects;

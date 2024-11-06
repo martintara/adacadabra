@@ -14,14 +14,17 @@ package body think is
       Put_Line("Started thinking task.");
       loop
          timer := Clock;
-         FLReading := Integer(Shared_Data.GetFLAvg);
-         FRReading := Integer(Shared_Data.GetFRAvg);
-         BReading := Integer(Shared_Data.GetBAvg);
-         Put_Line("FLS: " & Integer'Image(FLReading));
-         Put_Line("FRS: " & Integer'Image(FRReading));
-         Put_Line("BS: " & Integer'Image(BReading));
+         FLReading := Integer(Brain.GetFLAvg);
+         FRReading := Integer(Brain.GetFRAvg);
+         BReading := Integer(Brain.GetBAvg);
+
+         --these aren't interesting for this example and have thus been commented out
+         --Put_Line("FLS: " & Integer'Image(FLReading));
+         --Put_Line("FRS: " & Integer'Image(FRReading));
+         --Put_Line("BS: " & Integer'Image(BReading));
+
          cpu_time := Clock - timer;
-         Shared_Data.SetThinkTime(cpu_time);
+         Brain.SetThinkTime(cpu_time);
          delay until timer + Milliseconds(600);
       end loop;
    end thinktask;

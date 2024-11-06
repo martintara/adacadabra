@@ -22,9 +22,9 @@ package body sense is
       Initialize(FRBuf);
       Initialize(BBuf);
       if RobotConnected then
-         Put_Line("Started sensing task (assuming robot is in use).");
+         Put_Line("Started sensing task (assuming robot is CONNECTED).");
       else
-         Put_Line("Started sensing task (assuming robot is NOT in use).");
+         Put_Line("Started sensing task (assuming robot is DISCONNECTED).");
       end if;
       loop
          timer := Clock;
@@ -39,11 +39,11 @@ package body sense is
             Add_Reading(BBuf, Distance_cm(20));
          end if;
 
-         Shared_Data.SetFLAvg(Average(FLBuf));
-         Shared_Data.SetFRAvg(Average(FRBuf));
-         Shared_Data.SetBAvg(Average(BBuf));
+         Brain.SetFLAvg(Average(FLBuf));
+         Brain.SetFRAvg(Average(FRBuf));
+         Brain.SetBAvg(Average(BBuf));
          cpu_time := Clock - timer;
-         Shared_Data.SetSenseTime(cpu_time);
+         Brain.SetSenseTime(cpu_time);
          --HC-SR04 datasheet suggests a sensor reading interval of 60ms
          delay until timer + Milliseconds(60);
       end loop;

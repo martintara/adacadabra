@@ -20,9 +20,9 @@ begin
    Put_Line("Starting main loop.");
    loop
       timer := Clock;
-      Put_Line("sense time:" & Time_Span'Image(Shared_Data.GetSenseTime));
-      Put_Line("think time:" & Time_Span'Image(Shared_Data.GetThinkTime));
-      Put_Line("act time:" & Time_Span'Image(Shared_Data.GetActTime));
+      Put_Line("sense time:" & Duration'Image(To_Duration(Brain.GetSenseTime)) & " seconds");
+      Put_Line("think time:" & Duration'Image(To_Duration(Brain.GetThinkTime)) & " seconds");
+      Put_Line("act time:" & Duration'Image(To_Duration(Brain.GetActTime)) & " seconds");
       delay until timer + Seconds(2);
    end loop;
 end Main;

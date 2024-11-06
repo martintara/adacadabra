@@ -13,7 +13,7 @@ package body act is
          timer := Clock;
          delay 0.001; --just to simulate some code executing
          cpu_time := Clock - timer;
-         Shared_Data.SetActTime(cpu_time);
+         Brain.SetActTime(cpu_time);
          delay until timer + Seconds(2);
       end loop;
    end acttask;
